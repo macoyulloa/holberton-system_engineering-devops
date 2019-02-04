@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $PATH | echo PATH="\n:$PATH" | grep -o ":" | wc -l
