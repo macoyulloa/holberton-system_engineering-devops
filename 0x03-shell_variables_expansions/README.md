@@ -1,0 +1,1 @@
+This library is for practice: creating variables, alias, and commands.
