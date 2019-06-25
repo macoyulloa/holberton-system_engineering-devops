@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # killing a process 
 
-ps -e | grep "8-beheaded_process" | kill -9 4-to_infinity_and_beyond 
+pkill -f 7-highlander --signal 9 
