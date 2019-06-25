@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# killing a process 
+
+kill -SIGKILL "$(pgrep -f "8-beheaded_process")"
