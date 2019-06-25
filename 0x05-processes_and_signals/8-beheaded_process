@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # killing a process 
 
-kill -SIGKILL "$(pgrep -f "8-beheaded_process")"
+ps -e | grep "8-beheaded_process" | kill -9 4-to_infinity_and_beyond 
