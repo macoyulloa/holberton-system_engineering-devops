@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
---  configure web-02 to be identical to web-01
-
+# configure web-02 to be identical to web-01
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo awk 'BEGIN { print "Holberton School" > "/var/www/html/index.nginx-debian.html" }'
+sudo sed -i "o,/location \/ {/s//location \/ {\n\t\tadd_header X-Served-By $HOSTNAME;/" /etc/nginx/sites-available/default
+sudo service nginx restart
