@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# install proxy 
+sudo apt-get update -y
+sudo apt-get install -y haproxy=1.6\*
+echo "frontend macoy-frontend 
+        bind *:80
+        default_backend macoy-backend 
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "backend macoy-backend
+        balance roundrobin
+        server 764-web-01 104.196.1.139 check
+        server 764-web-02 35.227.123.185 check
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
