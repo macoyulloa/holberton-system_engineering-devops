@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# install nginX
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Holberton School" > /var/share/nginx/html/index.html
+sudo service nginx reload
