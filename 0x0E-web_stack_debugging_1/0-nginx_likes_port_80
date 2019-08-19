@@ -3,5 +3,4 @@
 sudo sed -i '0,/listen [^0-9].*/s/listen [^0-9].*/listen [::]:80 default_server ipv6only=on;/' /etc/nginx/sites-enabled/default
 sudo sed -i '0,/listen [^0-9].*/s/listen [0-9].*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
 sudo pkill -f nginx
-sudo service nginx start
-sudo service nginx reload
+sudo service nginx restart
