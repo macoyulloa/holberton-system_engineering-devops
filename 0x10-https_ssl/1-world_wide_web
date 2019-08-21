@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# display information about subdomains
+# Print domain sub domain, arguments domain subdomain
 if [ "$2" ]; then
     dig "$2.$1" | awk '/;; ANSWER SECTION:/ { getline; split($1,a,".");print "The subdomain " a[1],"is a "$4,"record and points to "$5}'
 else
