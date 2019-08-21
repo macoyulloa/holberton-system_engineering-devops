@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # configure web-02 to be identical to web-01
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get -y install nginx
-res="\\\t\tadd_header X-Served-By '$HOSTNAME';\n"
-sudo sed -i "55i $res" /etc/nginx/sites-available/default
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
+redirect="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n"
+sudo sed -i "42i $redirect" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/error_404.html
+error404="\\\terror_page 404 /error_404.html;\n\tlocation = /error_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
+sudo sed -i "46i $error404" /etc/nginx/sites-available/default
+sudo sed -ie "0,/location \/ {/s//location \/ {\n\t\tadd_header X-Served-By $HOSTNAME;/" /etc/nginx/sites-available/default
 sudo service nginx restart
