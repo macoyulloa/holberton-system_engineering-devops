@@ -42,6 +42,8 @@ frontend haproxynodes
         reqadd X-Forwarded-Proto:\ https
         default_backend back_nodes
 
-backend back_nodes        balance roundrobin
+backend back_nodes
+        balance roundrobin
+        redirect scheme https if !{ ssl_fc }
         server 764-web-01 104.196.1.139:80 check
         server 764-web-02 35.227.123.185:80 check
