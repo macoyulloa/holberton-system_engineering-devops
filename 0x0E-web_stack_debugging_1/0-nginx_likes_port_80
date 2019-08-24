@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Fixing the port 80 
-sudo sed -i '0,/listen [^0-9].*/s/listen [^0-9].*/listen [::]:80 default_server ipv6only=on;/' /etc/nginx/sites-enabled/default
+# Fixing the port 80
 sudo sed -i '0,/listen [^0-9].*/s/listen [0-9].*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
-sudo pkill -f nginx
 sudo service nginx restart
