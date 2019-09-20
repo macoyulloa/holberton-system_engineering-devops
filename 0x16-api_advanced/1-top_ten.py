@@ -8,7 +8,7 @@ def top_ten(subreddit):
     header = {'User-Agent': 'My User Agent 1.0'}
     try:
         api_reddit = "https://www.reddit.com"
-        link_url = get('{}/r/{}/about.json?limit=10&sort=hot'
+        link_url = get('{}/r/{}/hot.json?limit=10'
                        .format(api_reddit, subreddit),
                        headers=header, allow_redirects=False).json()
         data = link_url.get('data')
