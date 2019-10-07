@@ -1,9 +1,5 @@
 # fixing the error
-file { '/var/www/html/wp-settings.php':
-    ensure => present,
-} ->
-file_line { 'replace':
-    path  => '/var/www/html/wp-settings.php',
-    line  => "require_once( ABSPATH . WPINC . '/class-wp-locale.php');",
-    match =>  '^*phpp.*$',
+exec {'fixing phpp':
+    path    => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
+    command => "sed -i 's/.phpp/.php/g' /var/www/html/wp-settings.php",
 }
