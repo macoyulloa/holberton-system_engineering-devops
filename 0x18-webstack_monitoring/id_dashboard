@@ -1,5 +1,0 @@
-#!/bin/bash
-api_key=350c6ddb07e11aebb89782e549ed67ba
-app_key=7139cd989cbae8105786aa5ebb8be21f60ece14e
-
-curl "https://api.datadoghq.com/api/v1/dashboard?api_key=${api_key}&application_key=${app_key}"
